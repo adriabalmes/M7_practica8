@@ -27,3 +27,14 @@ CREATE SCHEMA IF NOT EXISTS "Coches"
 
     ALTER TABLE IF EXISTS "Coches".vehiculo
         OWNER to "postgresUser";
+
+
+        INSERT INTO "Coches".vehiculo(
+        id, marca, modelo, combustible, color, transmision, puertas, plazas)
+        VALUES (1,"audi","a4","diesel","rojo","automatica","5","5"),
+        (2,"bmw","x4","gasolina","verde","automatica","5","5"),
+        (3,"citroen","c5","gasolina","negro","manual","5","5"),
+        (4,"dacia","duster","gasolina","azul","manual","5","5"),
+        (5,"peugeot","208","gasolina","azul","manual","3","4"),
+        (6,"renault","arkana","electrico","amarillo","manual","5","5"),
+        (7,"seat","leon","gasolina","verde","manual","5","5");
