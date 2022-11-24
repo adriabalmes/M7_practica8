@@ -20,7 +20,7 @@ CREATE SCHEMA IF NOT EXISTS "Coches"
         transmision text COLLATE pg_catalog."default" NOT NULL,
         puertas text COLLATE pg_catalog."default" NOT NULL,
         plazas text COLLATE pg_catalog."default" NOT NULL,
-        CONSTRAINT vehiculo_pkey PRIMARY KEY (marca)
+        CONSTRAINT id_pkey PRIMARY KEY (marca)
     )
 
     TABLESPACE pg_default;
