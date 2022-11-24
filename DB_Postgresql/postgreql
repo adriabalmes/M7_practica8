@@ -11,7 +11,7 @@ CREATE SCHEMA IF NOT EXISTS "Coches"
 
     CREATE TABLE IF NOT EXISTS "Coches".vehiculo
     (
-        id integer NOT NULL DEFAULT nextval('"Coches".vehiculo_id_seq'::regclass),
+        id integer NOT NULL DEFAULT nextval('"Coches".vehiculo'::regclass),
         marca text COLLATE pg_catalog."default" NOT NULL,
         modelo text COLLATE pg_catalog."default" NOT NULL,
         combustible text COLLATE pg_catalog."default" NOT NULL,
