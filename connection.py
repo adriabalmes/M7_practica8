@@ -22,4 +22,3 @@ print("Connection established to: ",data)
 
 #Cerrando la conexion
 conn.close()
-Connection established : (2022)
