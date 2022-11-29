@@ -1,4 +1,4 @@
-options = ['select', 'update', 'delete']
+options = ['insert', 'update', 'delete']
 
 user_input = ''
 
