@@ -20,3 +20,6 @@ mycursor.executemany(sql, val)
 conn.commit()
 
 print(mycursor.rowcount, "registro actualizado")
+
+#Cerrando la conexion
+conn.close()

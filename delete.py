@@ -12,6 +12,7 @@ conn = psycopg2.connect(database="postgres",
 
 mycursor = conn.cursor()
 
+# Sentencia sql DELETE
 sql = "DELETE FROM Coches.vehiculo WHERE marca = %s"
 adr = ("audi", )
 
@@ -21,3 +22,6 @@ mycursor.execute(sql, adr)
 conn.commit()
 
 print(mycursor.rowcount, "registro deleted")
+
+#Cerrando la conexion
+conn.close()

@@ -1,7 +1,6 @@
-import glob
-from cffi.setuptools_ext import execfile
 
 
+# Opciones
 options = ['insert', 'update', 'delete']
 
 user_input = ''
@@ -16,17 +15,13 @@ input_message += 'Has escojido: '
 while user_input.lower() not in options:
     user_input = input(input_message)
 
-
+# Selector del archivo python
 if user_input == 'insert':
     print('Tu elecccion es: ' + user_input)
-    execfile('insert.py')
+    exec(open("./insert.py").read())
 elif user_input == 'update':
     print('Tu elecccion es: ' + user_input)
-    execfile('update.py')
+    exec(open("./update.py").read())
 else:
     print('Tu elecccion es: ' + user_input)
-    execfile('delete.py')
-
-
-
-
+    exec(open("./delete.py").read())
