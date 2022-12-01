@@ -34,7 +34,7 @@ con.commit()
 registrosactualizados = cursor.rowcount
 
 #mostramos un mensaje
-print(f'registro insertado: {registrosactualizados}')
+print(f'registro actualizado: {registrosactualizados}')
 
 #cerramos la conexion
 cursor.close()

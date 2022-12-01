@@ -31,7 +31,7 @@ conn.commit()
 registrosEliminados = mycursor.rowcount
 
 #mostramos un mensaje
-print(f'registro insertado: {registrosEliminados}')
+print(f'registro eliminado: {registrosEliminados}')
 
 #cerramos la conexion
 mycursor.close()
