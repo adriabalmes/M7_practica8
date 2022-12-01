@@ -1,6 +1,8 @@
+# conn = psycopg2.connect("dbname=postgres user=postgresUser password=postgresPW")
+# Crear conexion
 import psycopg2
-# Base de datos
-conn = psycopg2.connect(database="postgres",
+                        # Base de datos
+con = psycopg2.connect(database="postgresDB",
                         # Ip Servidor
                         host="localhost",
                         # Usuario
@@ -9,19 +11,34 @@ conn = psycopg2.connect(database="postgres",
                         password="postgresPW",
                         # Puerto
                         port="5455")
+                        
+#Crear cursor
+cursor = con.cursor()
 
-mycursor = conn.cursor()
+#METODO INSERT#####################################################################################################################
+#Creamos la sentencia sql
+# sql = 'INSERT INTO VEHICULO (marca, modelo, combustible, color, transmision, puertas, plazas) VALUES(%s,%s,%s,%s,%s,%s,%s))'
 
-# Sentencia sql DELETE
-sql = "DELETE FROM Coches.vehiculo WHERE marca = %s"
-adr = ("audi", )
+sql = 'DELETE FROM persona WHERE id=%s'
 
+#le pedimos los datos al usuario
+id = input('introduce la id a borrar: ')
 
-mycursor.execute(sql, adr)
+#recogemos los datos en una variable
 
-conn.commit()
+datos = id
 
-print(mycursor.rowcount, "registro deleted")
+cursor.execute(sql,datos)
 
-#Cerrando la conexion
-conn.close()
+#guardamos el registro
+con.commit()
+
+#esto (rowcount) lo que hace es contar los registros, es decir las filas
+registrosEliminados = cursor.rowcount
+
+#mostramos un mensaje
+print(f'registro insertado: {registrosEliminados}')
+
+#cerramos la conexion
+cursor.close()
+con.close()
