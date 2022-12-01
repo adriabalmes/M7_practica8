@@ -1,7 +1,7 @@
 
 
 # Opciones
-options = ['insert', 'update', 'delete']
+options = ['selectall', 'insert', 'update', 'delete']
 
 user_input = ''
 
@@ -22,6 +22,9 @@ if user_input == 'insert':
 elif user_input == 'update':
     print('Tu elecccion es: ' + user_input)
     exec(open("./update.py").read())
+elif user_input == 'selectall':
+    print('Tu elecccion es: ' + user_input)
+    exec(open("./select.py").read())
 else:
     print('Tu elecccion es: ' + user_input)
     exec(open("./delete.py").read())
