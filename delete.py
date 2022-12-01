@@ -13,7 +13,7 @@ conn = psycopg2.connect(database="postgres",
 mycursor = conn.cursor()
 
 # Sentencia sql DELETE
-sql = "DELETE FROM Coches.vehiculo WHERE id=%s"
+sql = 'DELETE FROM "Coches".vehiculo WHERE id=%s'
 
 #le pedimos los datos al usuario
 id = input('introduce la id a borrar: ')

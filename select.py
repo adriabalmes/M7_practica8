@@ -12,7 +12,7 @@ conn = psycopg2.connect(database="postgres",
 
 mycursor = conn.cursor()
 
-mycursor.execute("SELECT * FROM Coches.vehiculo")
+mycursor.execute('SELECT * FROM "Coches".vehiculo')
 
 result = mycursor.fetchall()
 

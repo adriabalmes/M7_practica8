@@ -13,7 +13,7 @@ conn = psycopg2.connect(database="postgres",
 mycursor = conn.cursor()
 
 # Sentencia sql INSERT
-sql = "INSERT INTO Coches.vehiculo (id, marca, modelo, combustible, color, transmision, puertas, plazas) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+sql = 'INSERT INTO "Coches".vehiculo (id, marca, modelo, combustible, color, transmision, puertas, plazas) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)'
 # val = [
 #     # id   marca  modelo combustible color  transmission  puertas plazas
 #     (1, 'audi', 'a4' , 'diesel', 'rojo', 'automatica', '5', '5')
