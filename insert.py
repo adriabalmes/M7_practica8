@@ -45,6 +45,9 @@ mycursor.execute(sql,datos)
 #guardamos el registro
 conn.commit()
 
+
+print(mycursor.rowcount, "registro deleted")
+=======
 #esto (rowcount) lo que hace es contar los registros, es decir las filas
 registros = mycursor.rowcount
 
@@ -54,3 +57,4 @@ print(f'registro insertado: {registros}')
 #cerramos la conexion
 mycursor.close()
 conn.close()
+
