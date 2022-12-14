@@ -12,11 +12,30 @@ conn = psycopg2.connect(database="postgres",
 
 mycursor = conn.cursor()
 
-sql = "UPDATE Coches.vehiculo SET marca = %s WHERE address = %s"
-val = ("audi", "renault")
+#Creamos la sentencia sql
 
-mycursor.executemany(sql, val)
+#cambiamos la marca
+sql = 'UPDATE "Coches".vehiculo SET marca = %s WHERE id = %s'
 
+#le pedimos los datos del vehiculo
+marca =input('introduce la nueva marca: ')
+
+id =input(('introduce la id del coche a actualizar: '))
+#recogemos los datos en una variable
+
+datos = (marca, id)
+
+mycursor.execute(sql,datos)
+
+#guardamos el registro
 conn.commit()
 
-print(mycursor.rowcount, "registro actualizado")
+#esto (rowcount) lo que hace es contar los registros, es decir las filas
+registrosactualizados = mycursor.rowcount
+
+#mostramos un mensaje
+print(f'registro actualizado: {registrosactualizados}')
+
+#cerramos la conexion
+mycursor.close()
+conn.close()

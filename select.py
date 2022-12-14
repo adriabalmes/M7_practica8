@@ -12,26 +12,12 @@ conn = psycopg2.connect(database="postgres",
 
 mycursor = conn.cursor()
 
-# Sentencia sql DELETE
-sql = 'DELETE FROM "Coches".vehiculo WHERE id=%s'
+mycursor.execute('SELECT * FROM "Coches".vehiculo')
 
-#le pedimos los datos al usuario
-id = input('introduce la id a borrar: ')
+result = mycursor.fetchall()
 
-#recogemos los datos en una variable
-
-datos = id
-
-mycursor.execute(sql,datos)
-
-#guardamos el registro
-conn.commit()
-
-#esto (rowcount) lo que hace es contar los registros, es decir las filas
-registrosEliminados = mycursor.rowcount
-
-#mostramos un mensaje
-print(f'registro eliminado: {registrosEliminados}')
+for all in result:
+    print(all)
 
 #cerramos la conexion
 mycursor.close()
