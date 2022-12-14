@@ -1,4 +1,4 @@
-#modificaciones de adrbranch
+#UPDATE nombre_tabla SET columna1 = 'nuevo_valor' WHERE columna1 = 'valor1'; 
 # conn = psycopg2.connect("dbname=postgres user=postgresUser password=postgresPW")
 # Crear conexion
 import psycopg2
@@ -16,30 +16,32 @@ con = psycopg2.connect(database="postgresDB",
 #Crear cursor
 cursor = con.cursor()
 
+#METODO INSERT#####################################################################################################################
 #Creamos la sentencia sql
-# sql = 'INSERT INTO VEHICULO (marca, modelo, combustible, color, transmision, puertas, plazas) VALUES(%s,%s,%s,%s,%s,%s,%s))'
 
-# Sentencia sql DELETE
-sql = 'DELETE FROM "Coches".vehiculo WHERE id=%s'
-
+#cambiamos el nombre
+sql = 'UPDATE persona SET nombre = %s WHERE id = %s'
 
 #le pedimos los datos al usuario
-id = input('introduce la id a borrar: ')
+nombre =input('introduce el nuevo nombre: ')
 
+id =input(('introduce la id de la persona a actualizar: '))
 #recogemos los datos en una variable
-datos = id
 
-mycursor.execute(sql,datos)
+datos = (nombre, id)
+
+cursor.execute(sql,datos)
 
 #guardamos el registro
-conn.commit()
+con.commit()
 
 #esto (rowcount) lo que hace es contar los registros, es decir las filas
-registrosEliminados = mycursor.rowcount
+registrosactualizados = cursor.rowcount
 
 #mostramos un mensaje
-print(f'registro eliminado: {registrosEliminados}')
+print(f'registro insertado: {registrosactualizados}')
 
 #cerramos la conexion
-mycursor.close()
-conn.close()
+cursor.close()
+con.close()
+
